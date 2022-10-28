@@ -1,4 +1,4 @@
-const { Client, GatewayIntentBits } = require('discord.js');
+const { Client, GatewayIntentBits, GatewayVersion } = require('discord.js');
 
 /* Misc */
 console.clear();
@@ -7,11 +7,13 @@ console.clear();
 const client = new Client({
     intents: [
       GatewayIntentBits.Guilds,
+      GatewayIntentBits.GuildMembers,
+      GatewayIntentBits.GuildPresences,
     ],
 });
 
-const boilerplateComponents = async () => {
-  await require('./util/boilerplateClient')(client);
+const stonedComponents = async () => {
+  await require('./util/stonedClient')(client);
 }
 
-boilerplateComponents();
+stonedComponents();
